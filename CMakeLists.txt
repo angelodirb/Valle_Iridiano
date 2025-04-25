@@ -3,4 +3,7 @@ project(Proyect_final)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Proyect_final main.cpp)
+add_executable(Proyect_final main.cpp
+        criatura.cpp
+        criatura.h
+)
