@@ -10,6 +10,8 @@ public:
     void inicializarMapa();
     Tile* getTile(int fila, int columna);
     void mostrarMapa() const;
+    int getFilas() const { return filas; }
+    int getColumnas() const { return columnas; }
 
 private:
     int filas;                     // Número de filas en el mapa

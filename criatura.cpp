@@ -1,16 +1,20 @@
-#include "Criatura.h"
+#include "criatura.h"
+#include <iostream>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 Criatura::Criatura(std::string nombre, int vida, int energia, int x, int y, std::string tipo)
     : nombre(nombre), vida(vida), energia(energia), posX(x), posY(y), tipo(tipo) {}
 
 nlohmann::json Criatura::toJson() const {
     return {
-            {"nombre", nombre},
-            {"vida", vida},
-            {"energia", energia},
-            {"posX", posX},
-            {"posY", posY},
-            {"tipo", tipo}
+                {"nombre", nombre},
+                {"vida", vida},
+                {"energia", energia},
+                {"posX", posX},
+                {"posY", posY},
+                {"tipo", tipo}
     };
 }
 
