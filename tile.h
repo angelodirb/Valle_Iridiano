@@ -1,9 +1,14 @@
 #ifndef TILE_H
 #define TILE_H
 
+#include <vector>
+
+class Criatura;
+
 class Tile {
 public:
-    bool tieneCriatura = false;
+    std::vector<Criatura*> criaturas;
+
     char mostrar() const;
 };
 

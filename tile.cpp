@@ -1,5 +1,8 @@
-#include "Tile.h"
+#include "tile.h"
+#include "criatura.h"
 
 char Tile::mostrar() const {
-    return tieneCriatura ? 'C' : '.';
+    if (criaturas.empty()) return '.';
+    if (criaturas.size() < 10) return '0' + criaturas.size();
+    return '*';
 }
