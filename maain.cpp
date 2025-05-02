@@ -4,17 +4,17 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-
-#include "tiles.h"
-#include "criaturaTerrestre.h"
-#include "criaturaAerea.h"
-#include "criaturahibrida.h"
+#include "criaturs.h"
 
 using namespace std;
 
 const int MAPA_TAM = 10;
 const double PROB_REPRODUCCION = 0.2;
 const double PROB_ATAQUE = 0.3;
+
+struct Tile {
+    vector<Criatura*> criaturas;
+};
 
 void mostrarMapa(const vector<vector<Tile>>& mapa) {
     for (int i = 0; i < MAPA_TAM; ++i) {
@@ -29,7 +29,7 @@ void interacciones(vector<vector<Tile>>& mapa, vector<unique_ptr<Criatura>>& cri
     for (int i = 0; i < MAPA_TAM; ++i) {
         for (int j = 0; j < MAPA_TAM; ++j) {
             auto& tile = mapa[i][j];
-            vector<Criatura*>& cs = tile.criaturas;
+            auto& cs = tile.criaturas;
 
             if (cs.size() < 2) continue;
 
@@ -65,7 +65,9 @@ void interacciones(vector<vector<Tile>>& mapa, vector<unique_ptr<Criatura>>& cri
         }
     }
 
-    for (auto& c : criaturas) c->edad++;
+    for (auto& c : criaturas) {
+        c->edad++;
+    }
 
     for (auto it = criaturas.begin(); it != criaturas.end(); ) {
         if ((*it)->vida <= 0 || (*it)->edad >= (*it)->esperanza_vida) {

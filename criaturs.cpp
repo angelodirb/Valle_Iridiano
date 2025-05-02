@@ -9,3 +9,24 @@ void Criatura::atacar(Criatura* otra) {
     otra->vida -= daño;
     std::cout << tipo() << " atacó e hizo " << daño << " de daño.\n";
 }
+
+CriaturaTerrestre::CriaturaTerrestre(int x_, int y_, int vida_)
+    : Criatura(x_, y_, vida_, 10) {}
+
+std::string CriaturaTerrestre::tipo() const {
+    return "terrestre";
+}
+
+CriaturaAerea::CriaturaAerea(int x_, int y_, int vida_)
+    : Criatura(x_, y_, vida_, 8) {}
+
+std::string CriaturaAerea::tipo() const {
+    return "aerea";
+}
+
+CriaturaHibrida::CriaturaHibrida(int x_, int y_, int vida_)
+    : Criatura(x_, y_, vida_, 6) {}
+
+std::string CriaturaHibrida::tipo() const {
+    return "hibrida";
+}
