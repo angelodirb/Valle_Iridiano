@@ -1,4 +1,3 @@
-#include "criaturahibrida.h"
 #include "CriaturaHibrida.h"
 
 CriaturaHibrida::CriaturaHibrida(int x, int y, int vida)
@@ -17,4 +16,3 @@ void CriaturaHibrida::mover(std::vector<std::vector<Tile>>& mapa) {
 
 bool CriaturaHibrida::estaOculta() const { return CriaturaTerrestre::estaOculta(); }
 bool CriaturaHibrida::puedeSobrevolar() const { return CriaturaAerea::puedeSobrevolar(); }
-main

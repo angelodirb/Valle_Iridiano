@@ -11,7 +11,6 @@ public:
     void mover(std::vector<std::vector<Tile>>& mapa) override;
     bool estaOculta() const;
     bool puedeSobrevolar() const;
- main
 };
 
 #endif
