@@ -1,10 +1,12 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "criatura.h"
 #include <vector>
+#include "Criatura.h"
 
 enum TipoTerreno { FERTIL, NEUTRO, LETAL };
+
+class Criatura; // forward declaration
 
 class Tile {
 public:
@@ -14,4 +16,4 @@ public:
     char mostrar() const;
 };
 
-#endif // TILE_H
+#endif

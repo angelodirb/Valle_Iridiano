@@ -1,8 +1,9 @@
 #ifndef CRIATURA_H
 #define CRIATURA_H
 
-#include <vector>
 #include <string>
+#include <vector>
+#include "Tile.h"
 
 class Tile;
 
@@ -12,12 +13,12 @@ public:
     int vida;
     int edad = 0;
     int esperanza_vida;
-    virtual std::string tipo() const = 0;
 
     Criatura(int x, int y, int vida);
-    virtual ~Criatura() {}
+    virtual ~Criatura();
 
+    virtual std::string tipo() const = 0;
     virtual void mover(std::vector<std::vector<Tile>>& mapa) = 0;
 };
 
-#endif // CRIATURA_H
+#endif

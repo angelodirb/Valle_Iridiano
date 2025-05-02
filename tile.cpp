@@ -1,12 +1,12 @@
-#include "tile.h"
+#include "Tile.h"
 #include <iostream>
 
 char Tile::mostrar() const {
     if (criaturas.empty()) {
         switch (tipoTerreno) {
-            case FERTIL:  std::cout << "\033[42mF\033[0m"; break;
-            case NEUTRO:  std::cout << "\033[43mN\033[0m"; break;
-            case LETAL:   std::cout << "\033[40mL\033[0m"; break;
+            case FERTIL:  std::cout << "B"; break;
+            case NEUTRO:  std::cout << "D"; break;
+            case LETAL:   std::cout << "M"; break;
         }
         return '\0';
     }
