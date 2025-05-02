@@ -7,7 +7,22 @@ Mapa::Mapa(int filas, int columnas) : filas(filas), columnas(columnas) {
 
 void Mapa::inicializarMapa() {
     tiles.resize(filas, std::vector<Tile>(columnas, Tile("tierra", Bioma(Bioma::TipoBioma::BOSQUE, Bioma::EstadoTerreno::NORMAL))));
-    // Aquí puedes personalizar los biomas de cada tile según sea necesario
+
+    // Asignar biomas según las filas
+    for (int i = 0; i < filas; ++i) {
+        for (int j = 0; j < columnas; ++j) {
+            if (i < 2) {
+                // Primeras 2 filas: Bosque
+                tiles[i][j].setBioma(Bioma(Bioma::TipoBioma::BOSQUE, Bioma::EstadoTerreno::NORMAL));
+            } else if (i < 4) {
+                // Filas 3 y 4: Desierto
+                tiles[i][j].setBioma(Bioma(Bioma::TipoBioma::DESIERTO, Bioma::EstadoTerreno::NORMAL));
+            } else {
+                // Últimas 2 filas: Montaña
+                tiles[i][j].setBioma(Bioma(Bioma::TipoBioma::MONTAÑA, Bioma::EstadoTerreno::NORMAL));
+            }
+        }
+    }
 }
 
 Tile* Mapa::getTile(int fila, int columna) {

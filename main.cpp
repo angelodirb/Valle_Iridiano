@@ -2,19 +2,12 @@
 #include "Mapa.h"
 #include "CriaturaAerea.h"
 #include "CriaturaTerrestre.h"
+
 int main() {
     system("chcp 65001");
-    Mapa mapa(5, 5);
+    Mapa mapa(6, 6); // Mapa de 6x6
 
-    // Inicializar biomas en el mapa
-    for (int i = 0; i < mapa.getFilas(); ++i) {
-        for (int j = 0; j < mapa.getColumnas(); ++j) {
-            // Asignar biomas de forma aleatoria para el ejemplo
-            Bioma::TipoBioma tipo = static_cast<Bioma::TipoBioma>(std::rand() % 3);
-            Bioma::EstadoTerreno estado = static_cast<Bioma::EstadoTerreno>(std::rand() % 4);
-            mapa.getTile(i, j)->setBioma(Bioma(tipo, estado));
-        }
-    }
+    // No es necesario inicializar biomas aquí, ya se hace en Mapa::inicializarMapa()
 
     CriaturaTerrestre tigre("Tigre", 100, 50, 0, 0, &mapa);
     CriaturaAerea aguila("Águila", 80, 70, 4, 4, &mapa);
