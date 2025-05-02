@@ -1,30 +1,22 @@
-#include "Tile.h"
+//
+// Created by HOME on 02/05/2025.
+//
 
-Tile::Tile(std::string tipo, Bioma bioma)
-    : tipo(tipo), bioma(bioma), ocupantes(0) {} // Inicializar ocupantes en 0
+#include "tile.h"
+#include "criaturas.h"
+#include <iostream>
 
-std::string Tile::getTipo() const {
-    return tipo;
-}
-
-int Tile::getOcupantes() const {
-    return ocupantes; // Retorna la cantidad de ocupantes
-}
-
-void Tile::agregarOcupante() {
-    ocupantes++; // Incrementa el contador de ocupantes
-}
-
-void Tile::eliminarOcupante() {
-    if (ocupantes > 0) {
-        ocupantes--; // Decrementa el contador de ocupantes
+char Tile::mostrar() const {
+    if (criaturas.empty()) {
+        switch (tipoTerreno) {
+            case FERTIL:  std::cout << "B"; break;
+            case NEUTRO:  std::cout << "D"; break;
+            case LETAL:   std::cout << "M"; break;
+        }
+        return '\0';
     }
-}
 
-Bioma Tile::getBioma() const {
-    return bioma; // Retorna el bioma asociado al tile
-}
-
-void Tile::setBioma(const Bioma& bioma) {
-    this->bioma = bioma; // Establece el bioma asociado al tile
+    char c = (criaturas.size() < 10) ? '0' + criaturas.size() : '*';
+    std::cout << c;
+    return '\0';
 }

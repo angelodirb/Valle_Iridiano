@@ -1,23 +1,25 @@
+//
+// Created by HOME on 02/05/2025.
+//
+
 #ifndef TILE_H
 #define TILE_H
 
-#include <string>
-#include "Bioma.h" // Incluir la clase Bioma
+
+
+#include <vector>
+
+class Criatura; // Declaración anticipada
+
+enum TipoTerreno { FERTIL, NEUTRO, LETAL };
 
 class Tile {
 public:
-    Tile(std::string tipo, Bioma bioma); // Constructor
-    std::string getTipo() const;
-    int getOcupantes() const;          // Obtener cantidad ocupante
-    void agregarOcupante();            // Añadir ocupante (+1)
-    void eliminarOcupante();           // Eliminar ocupante (-1)
-    Bioma getBioma() const; // Método para obtener el bioma
-    void setBioma(const Bioma& bioma); // Método para establecer el bioma
+    std::vector<Criatura*> criaturas;
+    TipoTerreno tipoTerreno;
 
-private:
-    std::string tipo; // Tipo de terreno (ej. "agua", "tierra")
-    Bioma bioma;     // Bioma asociado al tile
-    int ocupantes;   // Número de criaturas en el tile
+    char mostrar() const;
 };
 
-#endif // TILE_H
+
+#endif //TILE_H
