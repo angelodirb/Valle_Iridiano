@@ -1,15 +1,17 @@
 #ifndef TILE_H
 #define TILE_H
 
+#include "criatura.h"
 #include <vector>
 
-class Criatura;
+enum TipoTerreno { FERTIL, NEUTRO, LETAL };
 
 class Tile {
 public:
     std::vector<Criatura*> criaturas;
+    TipoTerreno tipoTerreno;
 
     char mostrar() const;
 };
 
-#endif
+#endif // TILE_H

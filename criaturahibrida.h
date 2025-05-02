@@ -7,10 +7,11 @@
 class CriaturaHibrida : public CriaturaTerrestre, public CriaturaAerea {
 public:
     CriaturaHibrida(int x, int y, int vida);
+
     std::string tipo() const override;
     void mover(std::vector<std::vector<Tile>>& mapa) override;
     bool estaOculta() const;
     bool puedeSobrevolar() const;
 };
 
-#endif
+#endif // CRIATURAHIBRIDA_H

@@ -1,9 +1,8 @@
-#include "Criaturaaerea.h"
-#include "tile.h"
+#include "CriaturaAerea.h"
+#include "Tile.h"
 #include <cstdlib>
 
-CriaturaAerea::CriaturaAerea(int x, int y, int vida)
-    : Criatura(x, y, vida) {
+CriaturaAerea::CriaturaAerea(int x, int y, int vida) : Criatura(x, y, vida) {
     esperanza_vida = 20 + rand() % 6;
 }
 
@@ -16,15 +15,16 @@ std::string CriaturaAerea::tipo() const {
 }
 
 void CriaturaAerea::mover(std::vector<std::vector<Tile>>& mapa) {
-    mapa[y][x].criaturas.erase(
-        std::remove(mapa[y][x].criaturas.begin(), mapa[y][x].criaturas.end(), this),
-        mapa[y][x].criaturas.end()
+    auto& casillaActual = mapa[y][x];
+    casillaActual.criaturas.erase(
+        std::remove(casillaActual.criaturas.begin(), casillaActual.criaturas.end(), this),
+        casillaActual.criaturas.end()
     );
 
     int nx = x + (rand() % 5 - 2);
     int ny = y + (rand() % 5 - 2);
 
-    if (nx >= 0 && nx < 15 && ny >= 0 && ny < 15) {
+    if (nx >= 0 && nx < MAPA_TAM && ny >= 0 && ny < MAPA_TAM) {
         x = nx;
         y = ny;
     }
