@@ -15,4 +15,6 @@ add_executable(Proyect_final main.cpp
         CriaturaTerrestre.cpp
         CriaturaTerrestre.h
         CriaturaAerea.cpp
-        CriaturaAerea.h)
+        CriaturaAerea.h
+        Estado.cpp
+        Estado.h)

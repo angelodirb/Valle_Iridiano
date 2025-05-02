@@ -10,44 +10,47 @@ CriaturaTerrestre::CriaturaTerrestre(std::string nombre, int vida, int energia, 
 }
 
 void CriaturaTerrestre::mover() {
-    if (energia <= 0) {
-        std::cout << nombre << " no tiene energía para moverse.\n";
-        return; // No se puede mover si no hay energía
-    }
+    if (energia <= 0) return;
 
-    if (!mapa) {
-        std::cout << nombre << ": Mapa no asignado, no puedo moverme.\n";
-        return;
-    }
+    if (!mapa) return;
 
-    // Movimiento simple aleatorio a tile vecino válido
-    const int posiblesX[] = {posX - 1, posX + 1, posX, posX};
-    const int posiblesY[] = {posY, posY, posY - 1, posY + 1};
+    std::vector<std::pair<int, int>> posiblesMovimientos;
 
-    for (int i = 0; i < 4; ++i) {
-        int nx = posiblesX[i];
-        int ny = posiblesY[i];
+    // Evaluar posiciones vecinas
+    for (int dx = -1; dx <= 1; ++dx) {
+        for (int dy = -1; dy <= 1; ++dy) {
+            if (dx == 0 && dy == 0) continue; // Saltar la posición actual
+            if (abs(dx) + abs(dy) != 1) continue; // Solo movimientos ortogonales
 
-        if (nx >= 0 && nx < mapa->getFilas() && ny >= 0 && ny < mapa->getColumnas()) {
-            Tile* tileDestino = mapa->getTile(nx, ny);
-            if (tileDestino) {
-                Tile* tileActual = mapa->getTile(posX, posY);
-                if (tileActual) {
-                    tileActual->eliminarOcupante(); // Eliminar ocupante del tile actual
-                }
+            int nx = posX + dx;
+            int ny = posY + dy;
 
-                posX = nx;
-                posY = ny;
-                tileDestino->agregarOcupante(); // Agregar ocupante al nuevo tile
-
-                // Aplicar efecto del bioma en vida y energía
-                tileDestino->getBioma().aplicarEfecto(vida, energia, nombre);
-
-                std::cout << nombre << " camina a (" << posX << ", " << posY << "). Vida: " << vida << ", Energía: " << energia << "\n";
-                return;
+            // Verificar que la nueva posición esté dentro de los límites del mapa
+            if (nx >= 0 && nx < mapa->getFilas() && ny >= 0 && ny < mapa->getColumnas()) {
+                posiblesMovimientos.emplace_back(nx, ny);
             }
         }
     }
+
+    // Si hay movimientos posibles, elegir uno al azar
+    if (!posiblesMovimientos.empty()) {
+        // Elegir un movimiento aleatorio
+        int index = rand() % posiblesMovimientos.size();
+        auto movimientoElegido = posiblesMovimientos[index];
+
+        // Actualizar la posición de la criatura
+        posX = movimientoElegido.first;
+        posY = movimientoElegido.second;
+
+        // Aquí puedes agregar lógica para actualizar el mapa y los ocupantes
+        const Tile* tileDestino = mapa->getTile(posY, posX);
+        if (tileDestino) {
+            const_cast<Tile*>(tileDestino)->agregarOcupante(); // Agregar ocupante
+        }
+
+        std::cout << "CriaturaTerrestre camina a (" << posX << ", " << posY << "). Vida: " << vida << ", Energía: " << energia << std::endl;
+        }
+
     std::cout << nombre << " no puede moverse, todas las casillas vecinas están ocupadas.\n";
 }
 

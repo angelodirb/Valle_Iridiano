@@ -8,7 +8,7 @@ class Mapa {
 public:
     Mapa(int filas, int columnas);
     void inicializarMapa();
-    Tile* getTile(int fila, int columna);
+    const Tile* getTile(int fila, int columna) const; // Cambia a const Tile*
     void mostrarMapa() const;
     int getFilas() const { return filas; }
     int getColumnas() const { return columnas; }

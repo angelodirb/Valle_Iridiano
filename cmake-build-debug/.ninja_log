@@ -1,0 +1,19 @@
+# ninja log v6
+61	1299	7679101127143268	CMakeFiles/Proyect_final.dir/Tile.cpp.obj	b0958a665ad6ddea
+43	1568	7679101126959760	CMakeFiles/Proyect_final.dir/Bioma.cpp.obj	1604bb9c457aebb
+15	4396	7679161629903878	CMakeFiles/Proyect_final.dir/CriaturaTerrestre.cpp.obj	1ec2b893bf0258fc
+31	2005	7679110992999673	CMakeFiles/Proyect_final.dir/Mapa.cpp.obj	81ff5636ce60b9c7
+10	6030	7679121999063185	CMakeFiles/Proyect_final.dir/Estado.cpp.obj	8caa0aa36f419fb8
+9	3239	7679162688479410	CMakeFiles/Proyect_final.dir/CriaturaAerea.cpp.obj	294191946f200e4e
+21	6024	7679110992888734	CMakeFiles/Proyect_final.dir/criatura.cpp.obj	1fcef82b319ac250
+20	3904	7679130750766071	CMakeFiles/Proyect_final.dir/main.cpp.obj	7bab5ab1da65d706
+3240	5104	7679162720788015	Proyect_final.exe	daecab263421e36c
+83	1576	7679167046641582	CMakeFiles/Proyect_final.dir/Tile.cpp.obj	de3df97f507bb2e1
+59	2019	7679167046408018	CMakeFiles/Proyect_final.dir/Bioma.cpp.obj	2983b6d64a7fceae
+105	2981	7679167046869232	CMakeFiles/Proyect_final.dir/Mapa.cpp.obj	3d1951c6b0c7b347
+134	6740	7679167047147043	CMakeFiles/Proyect_final.dir/CriaturaTerrestre.cpp.obj	b2d10b4cbe469990
+17	7073	7679167045984446	CMakeFiles/Proyect_final.dir/main.cpp.obj	68103b781f1dbca7
+1578	7802	7679167061593219	CMakeFiles/Proyect_final.dir/CriaturaAerea.cpp.obj	668175350dc0b97e
+39	8342	7679167046196447	CMakeFiles/Proyect_final.dir/criatura.cpp.obj	935f7ecc84547035
+2020	11037	7679167066007732	CMakeFiles/Proyect_final.dir/Estado.cpp.obj	d399f6b4b418904e
+11037	12997	7679167156183098	Proyect_final.exe	daecab263421e36c

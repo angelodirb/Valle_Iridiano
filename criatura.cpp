@@ -5,7 +5,7 @@
 using json = nlohmann::json;
 
 Criatura::Criatura(std::string nombre, int vida, int energia, int x, int y, std::string tipo)
-    : nombre(nombre), vida(vida), energia(energia), posX(x), posY(y), tipo(tipo) {}
+    : nombre(nombre), vida(vida), energia(energia), posX(x), posY(y), tipo(tipo), edad(0), esperanzaVida(100) {} // Inicializa edad y esperanzaVida
 
 nlohmann::json Criatura::toJson() const {
     return {

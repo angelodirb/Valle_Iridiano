@@ -25,7 +25,7 @@ void Mapa::inicializarMapa() {
     }
 }
 
-Tile* Mapa::getTile(int fila, int columna) {
+const Tile* Mapa::getTile(int fila, int columna) const {
     if (fila >= 0 && fila < filas && columna >= 0 && columna < columnas) {
         return &tiles[fila][columna];
     }

@@ -1,0 +1,70 @@
+{
+    "criaturas": [
+        {
+            "energia": 100,
+            "nombre": "CriaturaTerrestre",
+            "posX": 1,
+            "posY": 4,
+            "tipo": "Terrestre",
+            "vida": 100
+        },
+        {
+            "energia": 100,
+            "nombre": "CriaturaAerea",
+            "posX": 0,
+            "posY": 5,
+            "tipo": "Aérea",
+            "vida": 76
+        }
+    ],
+    "mapa": [
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+        ],
+        [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+        ]
+    ]
+}

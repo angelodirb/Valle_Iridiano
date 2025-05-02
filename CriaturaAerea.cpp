@@ -12,7 +12,7 @@ CriaturaAerea::CriaturaAerea(std::string nombre, int vida, int energia, int x, i
 void CriaturaAerea::mover() {
     if (energia <= 0) {
         std::cout << nombre << " no tiene energía para moverse.\n";
-        return; // No se puede mover si no hay energía
+        return;
     }
 
     if (!mapa) {
@@ -20,35 +20,48 @@ void CriaturaAerea::mover() {
         return;
     }
 
-    // Movimiento simple aleatorio a tile vecino válido
-    const int posiblesX[] = {posX - 1, posX + 1, posX, posX};
-    const int posiblesY[] = {posY, posY, posY - 1, posY + 1};
+    std::vector<std::pair<int, int>> posiblesMovimientos;
 
-    for (int i = 0; i < 4; ++i) {
-        int nx = posiblesX[i];
-        int ny = posiblesY[i];
+    // Evaluar las 8 posiciones vecinas (incluyendo diagonales)
+    for (int dx = -1; dx <= 1; ++dx) {
+        for (int dy = -1; dy <= 1; ++dy) {
+            if (dx == 0 && dy == 0) continue; // No considerar el tile actual
 
-        if (nx >= 0 && nx < mapa->getFilas() && ny >= 0 && ny < mapa->getColumnas()) {
-            Tile* tileDestino = mapa->getTile(nx, ny);
-            if (tileDestino) {
-                Tile* tileActual = mapa->getTile(posX, posY);
-                if (tileActual) {
-                    tileActual->eliminarOcupante(); // Eliminar ocupante del tile actual
-                }
+            int nx = posX + dx;
+            int ny = posY + dy;
 
-                posX = nx;
-                posY = ny;
-                tileDestino->agregarOcupante(); // Agregar ocupante al nuevo tile
-
-                // Aplicar efecto del bioma en vida y energía
-                tileDestino->getBioma().aplicarEfecto(vida, energia, nombre);
-
-                std::cout << nombre << " vuela a (" << posX << ", " << posY << "). Vida: " << vida << ", Energía: " << energia << "\n";
-                return;
+            // Verificar límites del mapa
+            if (nx >= 0 && nx < mapa->getFilas() && ny >= 0 && ny < mapa->getColumnas()) {
+                posiblesMovimientos.emplace_back(nx, ny);
             }
         }
     }
-    std::cout << nombre << " no puede moverse, todas las casillas vecinas están ocupadas.\n";
+
+    if (!posiblesMovimientos.empty()) {
+        // Elegir un movimiento aleatorio
+        int indice = rand() % posiblesMovimientos.size();
+        auto movimiento = posiblesMovimientos[indice];
+
+        const Tile* tileActual = mapa->getTile(posY, posX);
+        const Tile* tileDestino = mapa->getTile(movimiento.second, movimiento.first);
+
+        if (tileActual && tileDestino) {
+            // Actualizar ocupantes en los tiles usando const_cast para modificación
+            const_cast<Tile*>(tileActual)->eliminarOcupante();
+            const_cast<Tile*>(tileDestino)->agregarOcupante();
+
+            // Actualizar posición de la criatura
+            posX = movimiento.first;
+            posY = movimiento.second;
+
+            // Aplicar efectos del bioma (si tienes esta función)
+            tileDestino->getBioma().aplicarEfecto(vida, energia, nombre);
+
+            std::cout << nombre << " vuela a (" << posX << ", " << posY << "). Vida: " << vida << ", Energía: " << energia << "\n";
+        }
+    } else {
+        std::cout << nombre << " no tiene movimientos disponibles.\n";
+    }
 }
 
 void CriaturaAerea::actuar() {
