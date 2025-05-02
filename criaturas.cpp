@@ -1,3 +1,4 @@
-#include "Criaturas.h"
+#include "Criatura.h"
 
-Criatura::Criatura(int x, int y) : x(x), y(y) {}
+Criatura::Criatura(int x, int y, int vida) : x(x), y(y), vida(vida) {}
+Criatura::~Criatura() {}

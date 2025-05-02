@@ -1,12 +1,17 @@
-#ifndef CRIATURAHIBRIDA_H
-#define CRIATURAHIBRIDA_H
+#ifndef CRIATURA_HIBRIDA_H
+#define CRIATURA_HIBRIDA_H
 
-#include "criaturs.h"
+#include "CriaturaTerrestre.h"
+#include "CriaturaAerea.h"
 
-class CriaturaHibrida : public Criatura {
+class CriaturaHibrida : public CriaturaTerrestre, public CriaturaAerea {
 public:
-    CriaturaHibrida(int x_, int y_, int vida_);
-    string tipo() const override;
+    CriaturaHibrida(int x, int y, int vida);
+    std::string tipo() const override;
+    void mover(std::vector<std::vector<Tile>>& mapa) override;
+    bool estaOculta() const;
+    bool puedeSobrevolar() const;
+ main
 };
 
 #endif

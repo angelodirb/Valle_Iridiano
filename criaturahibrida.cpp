@@ -1,13 +1,20 @@
 #include "criaturahibrida.h"
+#include "CriaturaHibrida.h"
 
-CriaturaHibrida::CriaturaHibrida(int x_, int y_, int vida_)
-    : Criatura(x_, y_, vida_, 6) {}
-
-string CriaturaHibrida::tipo() const {
-    return "hibrida";
+CriaturaHibrida::CriaturaHibrida(int x, int y, int vida)
+    : Criatura(x, y, vida), CriaturaTerrestre(x, y, vida), CriaturaAerea(x, y, vida) {
+    esperanza_vida = 18 + rand() % 8;
 }
-//
-// Created by anto2 on 5/2/2025.
-//
 
-#include "criaturahibrida.h"
+std::string CriaturaHibrida::tipo() const { return "hibrida"; }
+
+void CriaturaHibrida::mover(std::vector<std::vector<Tile>>& mapa) {
+    if (rand() % 2 == 0)
+        CriaturaTerrestre::mover(mapa);
+    else
+        CriaturaAerea::mover(mapa);
+}
+
+bool CriaturaHibrida::estaOculta() const { return CriaturaTerrestre::estaOculta(); }
+bool CriaturaHibrida::puedeSobrevolar() const { return CriaturaAerea::puedeSobrevolar(); }
+main
