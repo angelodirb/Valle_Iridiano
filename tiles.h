@@ -1,10 +1,12 @@
-#ifndef TILES_H
-#define TILES_H
+#ifndef TILE_H
+#define TILE_H
 
-class Tile {
-public:
-    int criaturasEnCasilla = 0;
-    char mostrar() const;
+#include <vector>
+
+class Criatura; // Declaración adelantada
+
+struct Tile {
+    std::vector<Criatura*> criaturas;
 };
 
 #endif

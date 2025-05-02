@@ -1,13 +1,12 @@
-#ifndef CRIATURA_TERRESTRE_H
-#define CRIATURA_TERRESTRE_H
+#ifndef CRIATURAAEREA_H
+#define CRIATURAAEREA_H
 
 #include "criaturs.h"
 
-class CriaturaTerrestre : public Criatura {
+class CriaturaAerea : public Criatura {
 public:
-    CriaturaTerrestre(int x, int y, int vida);
-    std::string tipo() const override;
-    void mover(std::vector<std::vector<Tile>>& mapa) override;
+    CriaturaAerea(int x_, int y_, int vida_);
+    string tipo() const override;
 };
 
 #endif
