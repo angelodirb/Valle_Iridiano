@@ -3,6 +3,11 @@
 
 #include <string>
 
+enum class EstadoTierra {
+    FERTIL,
+    NEUTRO
+};
+
 class Tile {
 private:
     std::string tipo; // Tipo de terreno (ej. "agua", "tierra")

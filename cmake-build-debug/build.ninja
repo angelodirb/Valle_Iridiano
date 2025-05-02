@@ -57,6 +57,54 @@ build CMakeFiles/Proyect_final.dir/main.cpp.obj: CXX_COMPILER__Proyect_final_uns
   TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
   TARGET_PDB = Proyect_final.pdb
 
+build CMakeFiles/Proyect_final.dir/criatura.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/criatura.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\criatura.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
+build CMakeFiles/Proyect_final.dir/Bioma.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/Bioma.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\Bioma.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
+build CMakeFiles/Proyect_final.dir/Tile.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/Tile.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\Tile.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
+build CMakeFiles/Proyect_final.dir/Mapa.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/Mapa.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\Mapa.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
+build CMakeFiles/Proyect_final.dir/CriaturaTerrestre.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/CriaturaTerrestre.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\CriaturaTerrestre.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
+build CMakeFiles/Proyect_final.dir/CriaturaAerea.cpp.obj: CXX_COMPILER__Proyect_final_unscanned_Debug C$:/Users/HOME/Desktop/CLionProjects/Proyect_final/CriaturaAerea.cpp || cmake_object_order_depends_target_Proyect_final
+  DEP_FILE = CMakeFiles\Proyect_final.dir\CriaturaAerea.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Proyect_final.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyect_final.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Proyect_final.dir\
+  TARGET_PDB = Proyect_final.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Proyect_final
@@ -65,7 +113,7 @@ build CMakeFiles/Proyect_final.dir/main.cpp.obj: CXX_COMPILER__Proyect_final_uns
 #############################################
 # Link the executable Proyect_final.exe
 
-build Proyect_final.exe: CXX_EXECUTABLE_LINKER__Proyect_final_Debug CMakeFiles/Proyect_final.dir/main.cpp.obj
+build Proyect_final.exe: CXX_EXECUTABLE_LINKER__Proyect_final_Debug CMakeFiles/Proyect_final.dir/main.cpp.obj CMakeFiles/Proyect_final.dir/criatura.cpp.obj CMakeFiles/Proyect_final.dir/Bioma.cpp.obj CMakeFiles/Proyect_final.dir/Tile.cpp.obj CMakeFiles/Proyect_final.dir/Mapa.cpp.obj CMakeFiles/Proyect_final.dir/CriaturaTerrestre.cpp.obj CMakeFiles/Proyect_final.dir/CriaturaAerea.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Proyect_final.dir

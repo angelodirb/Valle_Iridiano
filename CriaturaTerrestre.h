@@ -6,7 +6,7 @@
 class CriaturaTerrestre : public Criatura {
 public:
     CriaturaTerrestre(std::string nombre, int vida, int energia, int x, int y);
-    void mover() override;
+    bool puedeMoverA(int nuevaX, int nuevaY, Mapa& mapa) const override;
     void actuar() override;
 };
 

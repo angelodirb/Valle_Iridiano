@@ -2,21 +2,24 @@
 #define CRIATURA_H
 
 #include <string>
-#include <nlohmann/json.hpp>
+#include "json.hpp"
+#include "Mapa.h"
+
 
 class Criatura {
 protected:
     std::string nombre;
     int vida;
-    int energia;
-    int posX;
-    int posY;
-    std::string tipo;
+    int X;
+    int Y;
 
 public:
-    Criatura(std::string nombre, int vida, int energia, int x, int y, std::string tipo);
-    virtual void mover() = 0; // Método virtual puro
-    virtual void actuar() = 0; // Método virtual puro
+    Criatura(std::string nombre, int x, int y);
+    virtual bool puedeMoverA(int nuevaX, int nuevaY, Mapa& mapa) const = 0;
+    virtual void mover(int x,int y, Mapa& mapa);
+    virtual void actuar();
+    int getX() const;
+    int getY() const;
     virtual nlohmann::json toJson() const;
     virtual void fromJson(const nlohmann::json& j);
 };

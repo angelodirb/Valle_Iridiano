@@ -1,7 +1,18 @@
 #include "Criatura.h"
 
-Criatura::Criatura(std::string nombre, int vida, int energia, int x, int y, std::string tipo)
-    : nombre(nombre), vida(vida), energia(energia), posX(x), posY(y), tipo(tipo) {}
+Criatura::Criatura(std::string nombre, int x, int y)
+    : nombre(nombre), vida(100), X(x), Y(y) {}
+
+void Criatura::mover(int nuevaX, int nuevaY, Mapa& mapa) {
+    if (puedeMoverA(nuevaX, nuevaY, mapa)) {
+        X = nuevaX;
+        Y = nuevaY;
+    }
+}
+
+int Criatura::getX() const { return posX; }
+int Criatura::getY() const { return posY; }
+
 
 nlohmann::json Criatura::toJson() const {
     return {
